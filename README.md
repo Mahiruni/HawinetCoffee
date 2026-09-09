@@ -1,30 +1,27 @@
 # Hawinet Coffee
 
-A modern, responsive redesign for Hawinet Coffee Export. The experience presents Ethiopia's coffee origins through an interactive regional atlas, an editorial brand story, and a working sample-request flow.
+Next.js App Router website for Hawinet Coffee Export. Includes the origin explorer, interactive map, responsive navigation, and sample-request email preparation.
 
-![Hawinet Coffee desktop preview](qa/implementation-desktop.png)
+## Development
 
-## Highlights
-
-- Interactive Ethiopian origin map and region selector
-- Responsive desktop, tablet, and mobile layouts
-- Functional sample-request modal that prepares a prefilled email to Hawinet's export team
-- Accessible semantic controls, focus states, and reduced-motion support
-- Locally bundled Bodoni Moda and DM Sans typography
-- Vite production build with a Sites-compatible worker bundle
-
-## Run locally
+Requires Node.js 22 or later.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-## Verify
+## Production
 
 ```bash
 npm run build
-npm run test:sites
+npm start
 ```
 
-The sample form validates the buyer's details and prepares a prefilled email addressed to `info@hawinetcoffee.com`; it does not claim a request was received before the buyer sends it.
+## Vercel
+
+Import `Mahiruni/HawinetCoffee`, use the repository root, and deploy `main`. The checked-in `vercel.json` selects Next.js, installs with `npm ci`, builds with `npm run build`, and uses `.next` output. No environment variables are required.
+
+The sample form prepares a mailto email draft; the visitor must send the email from their email client. It does not submit to a backend.
+
+The previous Vite entrypoint, configuration, dependencies, and custom Worker packaging have been removed.

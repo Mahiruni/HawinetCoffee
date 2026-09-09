@@ -1,3 +1,6 @@
+"use client";
+
+import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -156,7 +159,7 @@ const processSteps = [
 function BrandLogo() {
   return (
     <a className="brand" href="#top" aria-label="Hawinet Coffee Export home">
-      <img src="/assets/hawinet-logo.png" alt="Hawinet Coffee Export" />
+      <Image src="/assets/hawinet-logo.png" width={1087} height={543} sizes="155px" alt="Hawinet Coffee Export" />
     </a>
   );
 }
@@ -403,7 +406,7 @@ export function App() {
 
           </div>
           <figure className="hero-landscape">
-            <img src="/assets/origin-farm-panorama.webp" alt="Coffee drying beds surrounded by Ethiopia’s green highlands" fetchPriority="high" />
+            <Image src="/assets/origin-farm-panorama.webp" width={1800} height={560} sizes="(max-width: 760px) 100vw, 92vw" alt="Coffee drying beds surrounded by Ethiopia’s green highlands" preload />
             <figcaption><span>Rooted in Ethiopia.</span><span>Shared with the world.</span></figcaption>
           </figure>
         </section>
@@ -416,8 +419,8 @@ export function App() {
                 From misty forests to sunlit highlands, we work with communities to bring remarkable coffees to market with clarity and consistency.
               </p>
               <div className="hero-map" aria-label="Featured Ethiopian coffee origins">
-                <img
-                  src="/assets/ethiopia-origin-map.webp"
+                <Image
+                  src="/assets/ethiopia-origin-map.webp" width={1200} height={760} sizes="(max-width: 760px) 90vw, 450px"
                   alt="Ethiopian coffee landscapes within a map of Ethiopia"
                   loading="lazy"
                 />
@@ -455,8 +458,8 @@ export function App() {
               </div>
 
               <div className="origin-feature" aria-live="polite">
-                <img
-                  src="/assets/origin-farm-panorama.webp"
+                <Image
+                  src="/assets/origin-farm-panorama.webp" width={1800} height={560} sizes="(max-width: 760px) 100vw, 92vw"
                   alt="Raised coffee drying beds in Ethiopia's forested highlands"
                   loading="lazy"
                 />
