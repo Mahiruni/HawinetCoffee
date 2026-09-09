@@ -10,6 +10,7 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 ## Selected visual direction
 
-- Treat the user-selected third ideation mock, “Coffee Atlas,” as the visual truth.
-- Preserve Hawinet's real wordmark and the mock's warm-ivory, Ethiopian-green, muted-gold editorial system.
-- Keep the origin map interactive, the sample-request journey functional, and the experience responsive without introducing additional routes.
+- The user requested the OpenAI GPT-6 Astra page as the new frontend reference on September 9, 2026. This supersedes the Coffee Atlas mock.
+- Use white editorial surfaces, centered large sans-serif hero typography, expansive landscape imagery, restrained navigation, and generous section spacing.
+- Preserve Hawinet's real logo, all coffee-origin content, interactive map, sample-request workflow, and responsive single-page navigation.
+- Preserve “Website made by HisabTech” linked to https://hisabtechnologies.com/.

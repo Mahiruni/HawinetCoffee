@@ -4,7 +4,6 @@ import {
   ChatCircleDots,
   CheckCircle,
   CompassRose,
-  FlowerLotus,
   GlobeHemisphereEast,
   Handshake,
   Leaf,
@@ -341,6 +340,7 @@ export function App() {
 
   return (
     <div className="site-shell" id="top">
+      <a className="skip-link" href="#main">Skip to content</a>
       <header className="site-header">
         <BrandLogo />
         <nav className="desktop-nav" aria-label="Primary navigation">
@@ -383,9 +383,10 @@ export function App() {
         </nav>
       </div>
 
-      <main>
+      <main id="main">
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
+            <p className="eyebrow">Hawinet Coffee Export · Ethiopia</p>
             <h1 id="hero-title">
               Discover
               <span>Ethiopia by cup.</span>
@@ -400,39 +401,11 @@ export function App() {
               </button>
             </div>
 
-            <div className="hero-origin-summary" aria-live="polite">
-              <FlowerLotus size={34} weight="thin" aria-hidden="true" />
-              <div>
-                <span>{selectedOrigin.name}</span>
-                <span>{selectedOrigin.altitude}</span>
-                <span>{selectedOrigin.notes}</span>
-              </div>
-            </div>
           </div>
-
-          <div className="hero-map" aria-label="Featured Ethiopian coffee origins">
-            <img
-              src="/assets/ethiopia-origin-map.webp"
-              alt="Ethiopian coffee landscapes within a map of Ethiopia"
-              fetchPriority="high"
-            />
-            {Object.entries(markerPositions).map(([id, position]) => {
-              const origin = origins.find((item) => item.id === id);
-              return (
-                <button
-                  className={`map-marker ${selectedId === id ? "is-active" : ""}`}
-                  key={id}
-                  type="button"
-                  style={position}
-                  onClick={() => setSelectedId(id)}
-                  aria-pressed={selectedId === id}
-                >
-                  <span className="marker-dot" />
-                  <span>{origin?.name}</span>
-                </button>
-              );
-            })}
-          </div>
+          <figure className="hero-landscape">
+            <img src="/assets/origin-farm-panorama.webp" alt="Coffee drying beds surrounded by Ethiopia’s green highlands" fetchPriority="high" />
+            <figcaption><span>Rooted in Ethiopia.</span><span>Shared with the world.</span></figcaption>
+          </figure>
         </section>
 
         <section className="origins-section" id="origins" aria-labelledby="origins-title">
@@ -442,15 +415,37 @@ export function App() {
               <p>
                 From misty forests to sunlit highlands, we work with communities to bring remarkable coffees to market with clarity and consistency.
               </p>
+              <div className="hero-map" aria-label="Featured Ethiopian coffee origins">
+                <img
+                  src="/assets/ethiopia-origin-map.webp"
+                  alt="Ethiopian coffee landscapes within a map of Ethiopia"
+                  loading="lazy"
+                />
+                {Object.entries(markerPositions).map(([id, position]) => {
+                  const origin = origins.find((item) => item.id === id);
+                  return (
+                    <button
+                      className={`map-marker ${selectedId === id ? "is-active" : ""}`}
+                      key={id}
+                      type="button"
+                      style={position}
+                      onClick={() => setSelectedId(id)}
+                      aria-pressed={selectedId === id}
+                    >
+                      <span className="marker-dot" />
+                      <span>{origin?.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
             <div className="origins-showcase">
-              <div className="origin-selector" role="tablist" aria-label="Coffee origins">
+              <div className="origin-selector" role="group" aria-label="Choose a coffee origin">
                 {origins.map((origin) => (
                   <button
                     key={origin.id}
                     type="button"
-                    role="tab"
-                    aria-selected={selectedId === origin.id}
+                    aria-pressed={selectedId === origin.id}
                     className={selectedId === origin.id ? "is-selected" : ""}
                     onClick={() => setSelectedId(origin.id)}
                   >
@@ -459,7 +454,7 @@ export function App() {
                 ))}
               </div>
 
-              <div className="origin-feature" role="tabpanel" aria-live="polite">
+              <div className="origin-feature" aria-live="polite">
                 <img
                   src="/assets/origin-farm-panorama.webp"
                   alt="Raised coffee drying beds in Ethiopia's forested highlands"
